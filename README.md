@@ -1,6 +1,6 @@
 # Skills 技能库总览
 
-当前共有 **15 个技能**，按功能领域可分为以下几大类：
+当前共有 **18 个技能**，按功能领域可分为以下几大类：
 
 ---
 
@@ -27,7 +27,7 @@
 
 ---
 
-## 三、前端开发（4个）
+## 三、前端开发（7个）
 
 | 技能名称 | 功能描述 |
 |---------|---------|
@@ -35,6 +35,9 @@
 | **react-best-practices** | React/Next.js 性能优化指南，40+ 规则涵盖瀑布消除、Bundle 优化、渲染性能等 |
 | **ui-ux-pro-max** | UI/UX 设计智能库：50 种样式、21 种调色板、字体配对、图表类型、多框架支持 |
 | **cache-components** | Next.js Cache Components 和 Partial Prerendering (PPR) 专家指导 |
+| **web-design-guidelines** | Web Interface Guidelines 合规审查，检查 UI 代码的可访问性、最佳实践、UX 设计规范 |
+| **react-native-skills** | React Native/Expo 性能优化指南，35+ 规则涵盖列表性能、动画、导航、原生模块等 |
+| **composition-patterns** | React 组合模式，避免布尔属性泛滥，使用复合组件、状态提升、依赖注入构建可扩展组件 |
 
 ---
 
