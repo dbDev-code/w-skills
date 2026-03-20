@@ -1,6 +1,6 @@
 # Skills 技能库总览
 
-当前共有 **20 个技能**，按功能领域可分为以下几大类：
+当前共有 **21 个技能**，按功能领域可分为以下几大类：
 
 ---
 
@@ -27,7 +27,7 @@
 
 ---
 
-## 三、前端开发（7个）
+## 三、前端开发（8个）
 
 | 技能名称 | 功能描述 |
 |---------|---------|
@@ -38,6 +38,7 @@
 | **web-design-guidelines** | Web Interface Guidelines 合规审查，检查 UI 代码的可访问性、最佳实践、UX 设计规范 |
 | **react-native-skills** | React Native/Expo 性能优化指南，35+ 规则涵盖列表性能、动画、导航、原生模块等 |
 | **composition-patterns** | React 组合模式，避免布尔属性泛滥，使用复合组件、状态提升、依赖注入构建可扩展组件 |
+| **vtable-tanstack-guardrails** | VTable + TanStack 表格护栏，强制使用 @tanstack/table-core 处理表格语义、@tanstack/virtual-core 处理虚拟化，实现双向虚拟化与零重渲染，适用于大型 ERP 数据集 |
 
 ---
 
@@ -73,4 +74,4 @@
 
 ---
 
-*生成日期：2026-03-13*
+*生成日期：2026-03-20*
