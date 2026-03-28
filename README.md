@@ -27,7 +27,7 @@
 | 技能名称 | 功能描述 |
 |---------|---------|
 | **frontend-design** | 创建独特、高质量的前端界面，避免通用 AI 美学，注重创意和设计细节 |
-| **react-best-practices** | React/Next.js 性能优化指南，40+ 规则涵盖瀑布消除、Bundle 优化、渲染性能等 |
+| **react-best-practices** | Vercel React/Next.js 性能优化指南，65 条规则涵盖 8 大类别：瀑布消除（CRITICAL）、Bundle 优化（CRITICAL）、服务端性能（HIGH）、客户端数据获取（MEDIUM-HIGH）、重渲染优化（MEDIUM）、渲染性能（MEDIUM）、JavaScript 性能（LOW-MEDIUM）、高级模式（LOW）|
 | **ui-ux-pro-max** | UI/UX 设计智能库：50 种样式、21 种调色板、字体配对、图表类型、多框架支持 |
 | **cache-components** | Next.js Cache Components 和 Partial Prerendering (PPR) 专家指导 |
 | **web-design-guidelines** | Web Interface Guidelines 合规审查，检查 UI 代码的可访问性、最佳实践、UX 设计规范 |
