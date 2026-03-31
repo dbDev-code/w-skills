@@ -53,47 +53,7 @@ AI 根据任务上下文自动判断并调用相关技能：
 
 ## 2. 技能分类详解
 
-### 2.1 Deep Agents 智能体框架（2个）
-
-#### deepagents-setup-configuration
-
-**用途**：初始化 Deep Agents 项目
-
-**前置条件**：
-- Python 3.10+ 或 Node.js 18+
-- Git 已安装
-
-**使用方式**：
-```bash
-# 在项目目录执行
-npx deepagents init
-# 或
-python -m deepagents init
-```
-
-**功能**：
-- 自动创建项目结构
-- 配置中间件（规划、文件系统、子智能体）
-- 生成示例代码
-
-#### deepagents-planning-todos
-
-**用途**：任务规划和分解
-
-**使用方式**：
-```
-@deepagents-planning-todos
-将这个功能需求分解成可执行的任务列表
-```
-
-**特点**：
-- 自动识别任务依赖关系
-- 生成优先级排序
-- 支持里程碑设置
-
----
-
-### 2.2 规划与设计（2个）
+### 2.1 规划与设计（2个）
 
 #### brainstorming
 
@@ -132,7 +92,7 @@ python -m deepagents init
 
 ---
 
-### 2.3 前端开发（10个）
+### 2.2 前端开发（10个）
 
 #### frontend-design
 
@@ -308,7 +268,7 @@ npm install -g @ant-design/cli
 
 ---
 
-### 2.4 文档与办公（6个）
+### 2.3 文档与办公（6个）
 
 #### pdf
 
@@ -408,7 +368,7 @@ npm install -g @ant-design/cli
 
 ---
 
-### 2.5 AI 内容生成（2个）
+### 2.4 AI 内容生成（2个）
 
 #### seedance
 
@@ -441,7 +401,7 @@ npm install -g @ant-design/cli
 
 ---
 
-### 2.6 元技能（2个）
+### 2.5 元技能（2个）
 
 #### find-skills
 
@@ -477,7 +437,7 @@ npx skills add <skill-name>
 
 ---
 
-### 2.7 开发工具（6个）
+### 2.6 开发工具（6个）
 
 #### code-reviewer
 
@@ -587,7 +547,7 @@ gh auth login
 
 ---
 
-### 2.8 全栈开发（2个）
+### 2.7 全栈开发（2个）
 
 #### fullstack-developer
 
@@ -629,13 +589,9 @@ gh auth login
 ### 3.1 新项目启动
 
 ```
-@deepagents-setup-configuration    # 1. 初始化项目
+@brainstorming                       # 1. 头脑风暴设计
     ↓
-@brainstorming                       # 2. 头脑风暴设计
-    ↓
-@write-a-prd                         # 3. 创建PRD
-    ↓
-@deepagents-planning-todos          # 4. 任务分解
+@write-a-prd                         # 2. 创建PRD
 ```
 
 ### 3.2 前端开发
@@ -823,4 +779,4 @@ npx skills list
 
 ---
 
-*最后更新：2026-03-28*
+*最后更新：2026-03-31*
