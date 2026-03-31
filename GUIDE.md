@@ -587,7 +587,7 @@ gh auth login
 
 ---
 
-### 2.8 全栈开发（1个）
+### 2.8 全栈开发（2个）
 
 #### fullstack-developer
 
@@ -603,6 +603,23 @@ gh auth login
 ```
 @fullstack-developer
 帮我设计一个电商后端API架构
+```
+
+#### aspnet-core
+
+**用途**：ASP.NET Core 开发
+
+**覆盖领域**：
+- .NET 8+ 后端开发
+- Web API 设计与实现
+- Entity Framework Core
+- 依赖注入与中间件
+- 性能优化
+
+**使用方式**：
+```
+@aspnet-core
+帮我设计一个微服务架构
 ```
 
 ---
