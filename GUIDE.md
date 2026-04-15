@@ -25,6 +25,8 @@ AI 根据任务上下文自动判断并调用相关技能：
 - 当检测到 React/Next.js 代码时，自动应用 `react-best-practices`
 - 当涉及 PR 相关操作时，自动调用 `pr-creator`
 - 当进行代码审查时，自动使用 `code-reviewer`
+- 当编写、重构或收敛复杂实现方案时，优先参考 `karpathy-guidelines`
+- 当任务完成、准备合并或需要正式发起审查时，使用 `requesting-code-review`
 
 ### 1.2 手动调用
 
@@ -92,7 +94,7 @@ AI 根据任务上下文自动判断并调用相关技能：
 
 ---
 
-### 2.2 前端开发（10个）
+### 2.2 前端开发（11个）
 
 #### frontend-design
 
@@ -130,6 +132,22 @@ AI 根据任务上下文自动判断并调用相关技能：
 ```
 @react-best-practices
 帮我审查这个数据获取组件的性能问题
+```
+
+#### vercel-react-view-transitions
+
+**用途**：React 原生视图过渡动画
+
+**适用场景**：
+- 页面切换与路由过渡
+- 共享元素动画
+- 组件进场 / 退场动画
+- 列表重排动画
+
+**使用方式**：
+```
+@vercel-react-view-transitions
+为这个详情页添加列表到详情的共享元素过渡动画
 ```
 
 #### ui-ux-pro-max
@@ -268,71 +286,7 @@ npm install -g @ant-design/cli
 
 ---
 
-### 2.3 文档与办公（6个）
-
-#### pdf
-
-**用途**：PDF 文档处理
-
-**功能**：
-- PDF 解析与内容提取
-- 格式转换（PDF ↔ 图片/文本/HTML）
-- 合并与拆分
-- 添加水印、签名、注释
-
-**使用方式**：
-```
-@pdf
-把这个Word文档转换成PDF
-```
-
-#### xlsx
-
-**用途**：Excel 表格处理
-
-**功能**：
-- 读写 .xlsx/.csv 文件
-- 公式计算与函数应用
-- 数据透视表
-- 样式设置与批量操作
-
-**使用方式**：
-```
-@xlsx
-分析这个销售数据表格，生成汇总报告
-```
-
-#### pptx
-
-**用途**：PowerPoint 演示文稿处理
-
-**功能**：
-- 创建/编辑幻灯片
-- 添加文本、图形、动画
-- 模板应用
-- 格式转换与导出
-
-**使用方式**：
-```
-@pptx
-创建一个产品介绍演示文稿
-```
-
-#### docs
-
-**用途**：Word 文档处理
-
-**功能**：
-- 创建/编辑 .docx 文档
-- 格式排版与样式
-- 模板应用
-- 文档合并与拆分
-
-**使用方式**：
-```
-@docs
-帮我生成一份项目验收报告
-```
+### 2.3 文档与办公（2个）
 
 #### canvas-design
 
@@ -437,7 +391,7 @@ npx skills add <skill-name>
 
 ---
 
-### 2.6 开发工具（6个）
+### 2.6 开发工具（8个）
 
 #### code-reviewer
 
@@ -474,6 +428,42 @@ npx skills add <skill-name>
 ```
 @frontend-code-review
 审查这个Button组件的代码
+```
+
+#### karpathy-guidelines
+
+**用途**：减少常见 LLM 编码失误
+
+**核心原则**：
+- 先显式说明假设与歧义，再动手实现
+- 优先采用最小可行方案，避免过度设计
+- 只做外科手术式改动，不顺手重构无关代码
+- 把任务转成可验证的成功标准并验证结果
+
+**使用方式**：
+```
+@karpathy-guidelines
+帮我重构这个模块，但只允许最小改动并明确验证标准
+```
+
+#### requesting-code-review
+
+**用途**：发起代码审查流程
+
+**适用场景**：
+- 完成一个任务后请求正式审查
+- 完成重大功能后做阶段性质量把关
+- 合并到主分支前整理评审上下文
+
+**工作方式**：
+- 先确定 `BASE_SHA` 与 `HEAD_SHA`
+- 调用 `code-reviewer` 子流程
+- 根据 Critical / Important / Minor 反馈继续修复或推进
+
+**使用方式**：
+```
+@requesting-code-review
+我刚完成支付模块改造，帮我发起一次代码审查并整理上下文
 ```
 
 #### pr-creator
@@ -609,13 +599,17 @@ gh auth login
 ### 3.3 代码发布
 
 ```
-@code-reviewer                       # 1. 完整审查
+@karpathy-guidelines                 # 1. 收敛假设与成功标准
     ↓
-@update-docs                        # 2. 更新文档
+@requesting-code-review              # 2. 发起审查
     ↓
-@webapp-testing                     # 3. 功能测试
+@code-reviewer                       # 3. 完整审查
     ↓
-@pr-creator                         # 4. 创建PR
+@update-docs                        # 4. 更新文档
+    ↓
+@webapp-testing                     # 5. 功能测试
+    ↓
+@pr-creator                         # 6. 创建PR
 ```
 
 ### 3.4 内容创作
@@ -707,8 +701,10 @@ npx playwright install
 1. **规划先行**：复杂项目先使用 brainstorming 和 write-a-prd
 2. **设计确认**：UI 设计获得批准后再实现
 3. **性能同步**：开发过程中应用 react-best-practices
-4. **审查前置**：代码审查应在提交前完成
-5. **测试验证**：使用 webapp-testing 确保功能正确
+4. **先定边界**：复杂编码或重构任务先使用 karpathy-guidelines 明确假设、范围与验证方式
+5. **主动发审查**：任务完成或阶段性里程碑后，使用 requesting-code-review 主动拉起评审
+6. **审查前置**：代码审查应在提交前完成
+7. **测试验证**：使用 webapp-testing 确保功能正确
 
 ### 6.2 技能组合策略
 
@@ -717,8 +713,8 @@ npx playwright install
 | 新项目 | deepagents-setup + brainstorming + write-a-prd |
 | UI 开发 | frontend-design + shadcn/antd + react-best-practices |
 | 性能优化 | react-best-practices + cache-components |
-| 代码质量 | code-reviewer + frontend-code-review |
-| 发布流程 | pr-creator + update-docs + webapp-testing |
+| 代码质量 | karpathy-guidelines + requesting-code-review + code-reviewer + frontend-code-review |
+| 发布流程 | karpathy-guidelines + requesting-code-review + code-reviewer + update-docs + webapp-testing + pr-creator |
 
 ### 6.3 避免常见错误
 
@@ -775,8 +771,10 @@ npx skills list
 
 | 日期 | 版本 | 更新内容 |
 |-----|------|---------|
+| 2026-04-15 | 1.2 | 新增 `requesting-code-review` 技能，并同步更新开发工具分类、审查流程与组合示例 |
+| 2026-04-15 | 1.1 | 新增 `karpathy-guidelines` 技能，移除 `pdf`、`xlsx`、`docs`、`pptx`，并同步更新分类统计 |
 | 2026-03-28 | 1.0 | 初始版本，包含24个技能详细指南 |
 
 ---
 
-*最后更新：2026-03-31*
+*最后更新：2026-04-15*
