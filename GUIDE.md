@@ -27,6 +27,7 @@ AI 根据任务上下文自动判断并调用相关技能：
 - 当进行代码审查时，自动使用 `code-reviewer`
 - 当编写、重构或收敛复杂实现方案时，优先参考 `karpathy-guidelines`
 - 当任务完成、准备合并或需要正式发起审查时，使用 `requesting-code-review`
+- 当检测到 `Tauri`、`src-tauri`、`invoke`、`emit` 或 capability 配置时，使用 `tauri-v2`
 
 ### 1.2 手动调用
 
@@ -537,7 +538,7 @@ gh auth login
 
 ---
 
-### 2.7 全栈开发（2个）
+### 2.7 全栈开发（3个）
 
 #### fullstack-developer
 
@@ -570,6 +571,23 @@ gh auth login
 ```
 @aspnet-core
 帮我设计一个微服务架构
+```
+
+#### tauri-v2
+
+**用途**：Tauri v2+ 跨平台应用开发
+
+**覆盖领域**：
+- `tauri.conf.json` 配置
+- Rust 命令与 `#[tauri::command]`
+- 前后端 IPC 通信（`invoke` / `emit` / channels）
+- capabilities / permissions 配置
+- 桌面端与移动端构建、打包、发布排障
+
+**使用方式**：
+```
+@tauri-v2
+帮我排查这个 Tauri v2 项目的 invoke 调用失败和 capability 配置问题
 ```
 
 ---
@@ -682,8 +700,8 @@ npx playwright install
 @write-a-prd
 创建完整的产品需求文档
 
-@fullstack-developer
-设计前后端架构
+@tauri-v2
+设计一个基于 Tauri v2 的桌面端应用架构
 
 @nano-banana-pro
 生成App的UI素材
@@ -715,6 +733,7 @@ npx playwright install
 | 性能优化 | react-best-practices + cache-components |
 | 代码质量 | karpathy-guidelines + requesting-code-review + code-reviewer + frontend-code-review |
 | 发布流程 | karpathy-guidelines + requesting-code-review + code-reviewer + update-docs + webapp-testing + pr-creator |
+| 跨端桌面应用 | tauri-v2 + frontend-design + webapp-testing |
 
 ### 6.3 避免常见错误
 
@@ -771,6 +790,7 @@ npx skills list
 
 | 日期 | 版本 | 更新内容 |
 |-----|------|---------|
+| 2026-04-15 | 1.3 | 新增 `tauri-v2` 技能，并同步更新全栈分类、自动触发说明与跨端应用示例 |
 | 2026-04-15 | 1.2 | 新增 `requesting-code-review` 技能，并同步更新开发工具分类、审查流程与组合示例 |
 | 2026-04-15 | 1.1 | 新增 `karpathy-guidelines` 技能，移除 `pdf`、`xlsx`、`docs`、`pptx`，并同步更新分类统计 |
 | 2026-03-28 | 1.0 | 初始版本，包含24个技能详细指南 |
